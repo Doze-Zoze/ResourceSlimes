@@ -7,8 +7,8 @@ namespace ResourceSlimes.Content.Buffs
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Material Candle");
-			Description.SetDefault("Replaces Mineral slimes with Material slimes.");
-            Main.buffNoTimeDisplay[ModContent.BuffType<Content.Buffs.SlimeCandle>()] = true;
+			Description.SetDefault("Rapidly spawns Material slimes.");
+            Main.buffNoTimeDisplay[ModContent.BuffType<Content.Buffs.MaterialCandle>()] = true;
 		}
 
 	}

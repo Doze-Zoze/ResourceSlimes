@@ -7,7 +7,7 @@ namespace ResourceSlimes.Content.Buffs
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Slimy Candle");
-			Description.SetDefault("Increases Resource Slime spawn rates");
+			Description.SetDefault("Greatly increases Resource Slime spawn rates");
             Main.buffNoTimeDisplay[ModContent.BuffType<Content.Buffs.SlimeCandle>()] = true;
 		}
 

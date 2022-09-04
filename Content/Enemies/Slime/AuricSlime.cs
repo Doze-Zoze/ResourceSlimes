@@ -42,14 +42,11 @@ namespace ResourceSlimes.Content.Enemies.Slime
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if ((calamityMod != null)) {
                 if ((bool)calamityMod.Call("GetBossDowned", "yharon")) {
-                    if (spawnInfo.Player.HasBuff(BuffID.PeaceCandle)) {return 0f;
-                    } else {
-                        if (spawnInfo.Player.HasBuff<Content.Buffs.SlimeCandle>()) {return 5f;
-                        } else {
-                            if (spawnInfo.Player.ZoneRockLayerHeight){return 0.05f;
-                            } else {return 0f;}
-                        }
+                    if (spawnInfo.Player.ZoneRockLayerHeight)
+                    {
+                        return 0.05f;
                     }
+                    else { return 0f; }
                 } else {
                     return 0f;
                 }

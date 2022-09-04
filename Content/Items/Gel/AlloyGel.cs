@@ -33,20 +33,20 @@ namespace ResourceSlimes.Content.Items.Gel
 			calamityMod.Find<ModItem>("CryonicOre").CreateRecipe(5*2)
 			    .AddIngredient(this, 1)
 				.AddTile<Content.Tiles.SoliquifierTile>()
-				.AddCondition(NetworkText.FromKey("Defeat Cryogen"), r => (bool)calamityMod.Call("GetBossDowned", "cryogen"))
+				.AddCondition(NetworkText.FromKey("Defeat Cryogen"), r => ((bool)calamityMod.Call("GetBossDowned", "cryogen") || (bool)calamityMod.Call("GetBossDowned", "ravager")))
 				.AddCondition(NetworkText.FromKey("Defeat two Mechanical Bosses"), r => NPC.downedMechBoss1 ? (NPC.downedMechBoss2||NPC.downedMechBoss3) : (NPC.downedMechBoss2 && NPC.downedMechBoss3))
 			    .Register();
 
 			 calamityMod.Find<ModItem>("PerennialOre").CreateRecipe(5*2)
 			    .AddIngredient(this, 1)
 				.AddTile<Content.Tiles.SoliquifierTile>()
-				.AddCondition(NetworkText.FromKey("Defeat Plantera"), r => NPC.downedPlantBoss)
+				.AddCondition(NetworkText.FromKey("Defeat Plantera"), r => (NPC.downedPlantBoss || (bool)calamityMod.Call("GetBossDowned", "ravager")))
 			    .Register();
 
 			 calamityMod.Find<ModItem>("ScoriaOre").CreateRecipe(5*2)
 			    .AddIngredient(this, 1)
 				.AddTile<Content.Tiles.SoliquifierTile>()
-				.AddCondition(NetworkText.FromKey("Defeat Golem"), r => NPC.downedGolemBoss)
+				.AddCondition(NetworkText.FromKey("Defeat Golem"), r => (NPC.downedGolemBoss || (bool)calamityMod.Call("GetBossDowned", "ravager")))
 			    .Register();
             }
 

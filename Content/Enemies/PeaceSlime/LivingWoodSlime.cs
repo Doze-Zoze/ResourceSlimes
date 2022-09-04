@@ -39,19 +39,7 @@ namespace ResourceSlimes.Content.Enemies.PeaceSlime
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.HasBuff(BuffID.PeaceCandle)) {
-                if (Main.LocalPlayer.HasBuff<Content.Buffs.SlimeCandle>()) {
-                     return 5f;
-                } else {
-                    if (spawnInfo.Player.ZoneOverworldHeight) {
-                        return 0.05f;
-                    } else {
-                        return 0f;
-                    }
-                }
-            } else {
-                return 0f;
-            }
+            return (spawnInfo.Player.ZoneOverworldHeight) ? 0.01f : 0f;
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot) {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Content.Items.Gel.LivingWoodGel>()));

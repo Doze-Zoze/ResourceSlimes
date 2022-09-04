@@ -26,7 +26,7 @@ namespace ResourceSlimes.Content.Items.Gel
 
 		public override void AddRecipes()
 		{
-			Recipe recipe = Recipe.Create(ItemID.CrystalShard, 24)
+			Recipe recipe = Recipe.Create(ItemID.CrystalShard, 25)
 			    .AddIngredient(this)
 				.AddTile<Content.Tiles.SoliquifierTile>()
 				.AddCondition(NetworkText.FromKey("In Hardmode"), r => Main.hardMode)

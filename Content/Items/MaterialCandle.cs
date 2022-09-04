@@ -15,7 +15,7 @@ namespace ResourceSlimes.Content.Items
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.Candle);
-			Item.createTile = ModContent.TileType<Content.Tiles.SlimeCandle>();
+			Item.createTile = ModContent.TileType<Content.Tiles.MaterialCandle>();
 
 		}
 
@@ -31,7 +31,6 @@ namespace ResourceSlimes.Content.Items
 			    .AddIngredient(ModContent.ItemType<Content.Items.Gel.TyrannyGel>(), 10)
 				.AddTile<Content.Tiles.SoliquifierTile>()
 			    .Register();
-            
             
 		}
 

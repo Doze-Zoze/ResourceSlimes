@@ -23,7 +23,6 @@ namespace ResourceSlimes.Content.Tiles
 		public override void NearbyEffects(int i, int j, bool closer)
 		{if (closer) {
 			Main.LocalPlayer.AddBuff(ModContent.BuffType<Content.Buffs.SlimeCandle>(), 10);
-			Main.LocalPlayer.AddBuff(13, 10);
 		}
 		}
 	}}

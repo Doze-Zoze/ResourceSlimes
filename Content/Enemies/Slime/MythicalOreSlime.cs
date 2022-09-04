@@ -40,10 +40,6 @@ namespace ResourceSlimes.Content.Enemies.Slime
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (Main.hardMode) {
-                if (spawnInfo.Player.HasBuff(BuffID.PeaceCandle)) {return 0f;} else{
-                 if (Main.LocalPlayer.HasBuff<Content.Buffs.SlimeCandle>()) {
-                         return 5f;
-                 } else {
                 if (spawnInfo.Player.ZoneRockLayerHeight)
                 {
                     return 0.05f;
@@ -51,7 +47,7 @@ namespace ResourceSlimes.Content.Enemies.Slime
                 else
                 {
                     return 0f;
-                }}}
+                }
         }else{return 0f;}}
         public override void ModifyNPCLoot(NPCLoot npcLoot) {
             npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Content.Items.Gel.MythicalOreGel>()));

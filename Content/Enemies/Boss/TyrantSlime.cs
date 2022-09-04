@@ -8,6 +8,7 @@ using Terraria.GameContent.Bestiary;
 
 namespace ResourceSlimes.Content.Enemies.Boss
 {
+    [AutoloadBossHead]
     public class TyrantSlime : ModNPC
     {
         public override void SetStaticDefaults()
@@ -26,11 +27,11 @@ namespace ResourceSlimes.Content.Enemies.Boss
             var height = 16f;
             var width = 24f;
 
-            var lifeMultiplier = 1.25f;
+            var lifeMultiplier = 1.20f;
             var scaleMultiplier = 1.1f;
-            var damageMultiplier = 1.1f;
-            var defenseMultiplier = 1.15f;
-            var valueMultiplier = 1.25f;
+            var damageMultiplier = 1.15f;
+            var defenseMultiplier = 1.125f;
+            var valueMultiplier = 1.1f;
 
             if (NPC.downedBoss1) {
                 lifeMax = lifeMax * lifeMultiplier;
@@ -136,7 +137,7 @@ namespace ResourceSlimes.Content.Enemies.Boss
             NPC.knockBackResist = 0f;
             NPC.scale = scale;
             NPC.npcSlots = 0.5f;
-            AIType = NPCID.BlueSlime;
+            AIType = NPCID.KingSlime;
             AnimationType = NPCID.BlueSlime;
         }
 

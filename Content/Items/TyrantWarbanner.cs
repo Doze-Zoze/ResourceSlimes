@@ -13,7 +13,7 @@ namespace ResourceSlimes.Content.Items
 			DisplayName.SetDefault("Tyrant's Warbanner");
 			Tooltip.SetDefault("Summons the Tyrant Slime");
 
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12; // This helps sort inventory know that this is a boss summoning Item.
 			
 		}
