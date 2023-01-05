@@ -1,0 +1,460 @@
+﻿using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.GameContent.Creative;
+using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+
+namespace ResourceSlimes.Content.Items
+{
+	public class KSSpawn : ModItem
+	{
+		public override string Texture => "Terraria/Item_" + ItemID.SlimeCrown;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimy Crown");
+			Tooltip.SetDefault("Summons King Slime");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 9999;
+			Item.value = 100;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+			Item.color = Color.Purple;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !NPC.AnyNPCs(NPCID.KingSlime);
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer)
+			{
+				// If the player using the item is the client
+				// (explicitely excluded serverside here)
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+				int type = NPCID.KingSlime;
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					// If the player is not in multiplayer, spawn directly
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					// If the player is in multiplayer, request a spawn
+					// This will only work if NPCID.Sets.MPAllowedEnemies[type] is true, which we set in this class above
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+
+			return true;
+		}
+
+		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
+		public override void AddRecipes()
+		{
+			CreateRecipe()
+				.AddIngredient<Content.Items.Gel.TyrannyGel>()
+				.AddTile(TileID.Solidifier)
+				.Register();
+		}
+	}
+	public class EoCSpawn : ModItem
+	{
+		public override string Texture => "Terraria/Item_" + ItemID.SuspiciousLookingEye;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimy Eye");
+			Tooltip.SetDefault("Summons the Eye of Crhulhu");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 9999;
+			Item.value = 100;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+			Item.color = Color.Purple;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !NPC.AnyNPCs(NPCID.EyeofCthulhu);
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer)
+			{
+				// If the player using the item is the client
+				// (explicitely excluded serverside here)
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+				int type = NPCID.EyeofCthulhu;
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					// If the player is not in multiplayer, spawn directly
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					// If the player is in multiplayer, request a spawn
+					// This will only work if NPCID.Sets.MPAllowedEnemies[type] is true, which we set in this class above
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+
+			return true;
+		}
+
+		// Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
+		public override void AddRecipes()
+		{
+			CreateRecipe()
+				.AddIngredient<Content.Items.Gel.TyrannyGel>()
+				.AddTile(TileID.Solidifier)
+				.Register();
+		}
+	}
+	public class EoWSpawn : ModItem
+	{
+		public override string Texture => "Terraria/Item_" + ItemID.WormFood;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimy Food");
+			Tooltip.SetDefault("Summons the Eater of Worlds");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 9999;
+			Item.value = 100;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+			Item.color = Color.Purple;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !NPC.AnyNPCs(NPCID.EaterofWorldsHead);
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+				int type = NPCID.EaterofWorldsHead;
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+
+			return true;
+		}
+
+	}
+	public class BoCSpawn : ModItem
+	{
+		public override string Texture => "Terraria/Item_" + ItemID.BloodySpine;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimy Spine");
+			Tooltip.SetDefault("Summons the Brain of Cthulhu");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 9999;
+			Item.value = 100;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+			Item.color = Color.Purple;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !NPC.AnyNPCs(NPCID.BrainofCthulhu);
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+				int type = NPCID.BrainofCthulhu;
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+
+			return true;
+		}
+
+	}
+	public class QBSpawn : ModItem
+	{
+		public override string Texture => "Terraria/Item_" + ItemID.Abeemination;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimy Bee");
+			Tooltip.SetDefault("Summons the Queen Bee");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 9999;
+			Item.value = 100;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+			Item.color = Color.Purple;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !NPC.AnyNPCs(NPCID.QueenBee);
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+				int type = NPCID.QueenBee;
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+
+			return true;
+		}
+
+	}
+	public class SkeleSpawn : ModItem
+	{
+		public override string Texture => "Terraria/Item_" + ItemID.Skull;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimy Skull");
+			Tooltip.SetDefault("Summons Skeletron");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 9999;
+			Item.value = 100;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+			Item.color = Color.Purple;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !NPC.AnyNPCs(NPCID.SkeletronHead);
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+				int type = NPCID.SkeletronHead;
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+
+			return true;
+		}
+
+	}
+	public class DCSpawn : ModItem
+	{
+		public override string Texture => "Terraria/Item_" + ItemID.DeerThing;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimy Thing");
+			Tooltip.SetDefault("Summons Deerclops");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 9999;
+			Item.value = 100;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+			Item.color = Color.Purple;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !NPC.AnyNPCs(NPCID.Deerclops);
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+				int type = NPCID.Deerclops;
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+
+			return true;
+		}
+
+	}
+	public class WoFSpawn : ModItem
+	{
+		public override string Texture => "Terraria/Item_" + ItemID.GuideVoodooDoll;
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Slimy Guide");
+			Tooltip.SetDefault("Summons the Wall of Flesh");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
+			ItemID.Sets.SortingPriorityBossSpawns[Type] = 12;
+
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 20;
+			Item.height = 20;
+			Item.maxStack = 9999;
+			Item.value = 100;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+			Item.color = Color.Purple;
+		}
+
+		public override bool CanUseItem(Player player)
+		{
+			return !NPC.AnyNPCs(NPCID.WallofFlesh);
+		}
+
+		public override bool? UseItem(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+
+				int type = NPCID.WallofFlesh;
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+
+			return true;
+		}
+
+	}
+}

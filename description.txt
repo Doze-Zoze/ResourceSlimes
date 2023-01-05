@@ -1,1 +1,5 @@
-Resource Slimes (Calamity) is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+Resource Slimes is a quality-of-life mod intended to aid with resource gathering and reducing grindiness.
+Supports Calamity
+
+Currently adds 3 slimes to aid in getting ores, basic crafting and building materials, and travelling merchant loot.
+Additionally, there is one miniboss which provides access to creating boss spawners. (Calamity boss spawners support is forthcoming)

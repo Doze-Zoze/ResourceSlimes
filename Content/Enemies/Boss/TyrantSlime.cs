@@ -19,124 +19,127 @@ namespace ResourceSlimes.Content.Enemies.Boss
 
         public override void SetDefaults()
         {
-            var lifeMax = 2000f;
-            var scale = 4f;
-            var damage = 40f;
-            var defense = 10f;
-            var value = 10000f;
+            var lifeMin = 1000f;
+            var lifeMax = 20000f;
+            var life = lifeMin;
+            var dmgMin = 30f;
+            var dmgMax = 600f;
+            var dmg = dmgMin;
+            var defMin = 10f;
+            var defMax = 100f;
+            var def = defMin;
+            var valueMin = 10000f;
+            var valueMax = 25000f;
+            var value = valueMin;
             var height = 16f;
             var width = 24f;
+            var bossCount = 18;
 
-            var lifeMultiplier = 1.20f;
-            var scaleMultiplier = 1.1f;
-            var damageMultiplier = 1.15f;
-            var defenseMultiplier = 1.125f;
-            var valueMultiplier = 1.1f;
 
             if (NPC.downedBoss1) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedBoss2) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedBoss3) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedDeerclops) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedQueenBee) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (Main.hardMode) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedSlimeKing) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedPlantBoss) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedGolemBoss) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedMartians) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedFishron) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedEmpressOfLight) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedAncientCultist) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedMoonlord) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedQueenSlime) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedMechBoss1) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedMechBoss2) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             } if (NPC.downedMechBoss3) {
-                lifeMax = lifeMax * lifeMultiplier;
-                scale = scale * scaleMultiplier;
-                defense = defense * defenseMultiplier;
-                value = value * valueMultiplier;
+                life += ((lifeMax-lifeMin)/bossCount);
+                dmg += ((dmgMax-dmgMin)/bossCount);
+                def += ((defMax-defMin)/bossCount);
+                value += ((valueMax-valueMin)/bossCount);
             }
             NPC.width = (int)(width);
             NPC.height = (int)(height);
-            NPC.damage = (int)damage;
-            NPC.defense = (int)defense;
-            NPC.lifeMax = (int)lifeMax;
+            NPC.damage = (int)dmg;
+            NPC.defense = (int)def;
+            NPC.lifeMax = (int)life;
             NPC.value = (int)value;
             NPC.aiStyle = 1;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.boss = true;
             NPC.knockBackResist = 0f;
-            NPC.scale = scale;
-            NPC.npcSlots = 0.5f;
+            NPC.scale = 4;
+            NPC.npcSlots = 2f;
             AIType = NPCID.KingSlime;
             AnimationType = NPCID.BlueSlime;
         }

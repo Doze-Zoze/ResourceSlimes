@@ -10,6 +10,5 @@ namespace ResourceSlimes.Content.Buffs
 			Description.SetDefault("Greatly increases Resource Slime spawn rates");
             Main.buffNoTimeDisplay[ModContent.BuffType<Content.Buffs.SlimeCandle>()] = true;
 		}
-
 	}
 }

@@ -11,7 +11,7 @@ namespace ResourceSlimes.Content.Items.Gel
 	public class TyrannyGel : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Power of a tyrant."); // The (English) text shown below your item's name
+			Tooltip.SetDefault("Power of a tyrant.\nCan be used to create boss spawners"); // The (English) text shown below your item's name
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 30; // How many items are needed in order to research duplication of this item in Journey mode. See https://terraria.gamepedia.com/Journey_Mode/Research_list for a list of commonly used research amounts depending on item type.
 		}
 

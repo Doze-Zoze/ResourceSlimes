@@ -7,7 +7,7 @@ using Terraria.ObjectData;
 
 namespace ResourceSlimes.Content.Tiles
 {
-	public class MineralCandle : ModTile
+	public class TyrantCandle : ModTile
 	{
 		public override void SetStaticDefaults() {
 
@@ -16,7 +16,7 @@ namespace ResourceSlimes.Content.Tiles
 			Main.tileNoAttach[Type] = true;
 			Main.tileWaterDeath[Type] = true;
 			Main.tileLavaDeath[Type] = true;
-			ItemDrop = ModContent.ItemType<Content.Items.MineralCandle>();
+			ItemDrop = ModContent.ItemType<Content.Items.TyrantCandle>();
 			TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
 			TileObjectData.addTile(Type);
 			
@@ -32,7 +32,7 @@ namespace ResourceSlimes.Content.Tiles
 		}
 		public override void NearbyEffects(int i, int j, bool closer)
 		{if (closer) {
-			Main.LocalPlayer.AddBuff(ModContent.BuffType<Content.Buffs.MineralCandle>(), 10);
+			Main.LocalPlayer.AddBuff(ModContent.BuffType<Content.Buffs.TyrantCandle>(), 10);
 		}
 		}
 	}}

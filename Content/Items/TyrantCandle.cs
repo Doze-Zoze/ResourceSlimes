@@ -10,16 +10,16 @@ using Microsoft.Xna.Framework;
 
 namespace ResourceSlimes.Content.Items
 {
-	class MineralCandle : ModItem
+	class TyrantCandle : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Increases Spawn Rates\nOnly Mineral Slimes can spawn near this candle\nWhen also near a Material candle, both types of slimes can spawn.\nWhen also near a Slime candle, Merchant slimes can spawn.");
+			Tooltip.SetDefault("This seems dangerous.\nMassively increases enemy spawn rates.");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;	
 		}
 		public override void SetDefaults()
 		{
 			Item.CloneDefaults(ItemID.Candle);
-			Item.createTile = ModContent.TileType<Content.Tiles.MineralCandle>();
+			Item.createTile = ModContent.TileType<Content.Tiles.TyrantCandle>();
 			
 		}
 
@@ -27,12 +27,12 @@ namespace ResourceSlimes.Content.Items
 		{
 			CreateRecipe(1)
                 .AddIngredient(ItemID.Candle, 1)
-			    .AddIngredient(ModContent.ItemType<Content.Items.Gel.MineralGel>(), 10)
+			    .AddIngredient(ModContent.ItemType<Content.Items.Gel.TyrannyGel>(), 25)
 				.AddTile(TileID.Solidifier)
 			    .Register();
 			CreateRecipe(1)
                 .AddIngredient(ItemID.PlatinumCandle, 1)
-			    .AddIngredient(ModContent.ItemType<Content.Items.Gel.MineralGel>(), 10)
+			    .AddIngredient(ModContent.ItemType<Content.Items.Gel.TyrannyGel>(), 25)
 				.AddTile(TileID.Solidifier)
 			    .Register();
             
